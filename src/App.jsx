@@ -32,7 +32,7 @@ function App() {
       {data.name !== undefined && (
         <div>
           <div>
-            <p>{data.name}</p>
+            <h3>{data.name}</h3>
           </div>
           {icon.map((image) => {
             if (image.type === data.weather[0].main) {
@@ -45,7 +45,11 @@ function App() {
             ) : null}
           </div>
           <div style={{ paddingBottom: '20px' }}>
-            {data.weather ? <p>{data.weather[0].main}</p> : null}
+            {icon.map((weather) => {
+              if (weather.type === data.weather[0].main) {
+                return <h3>{weather.status}</h3>;
+              }
+            })}
           </div>
         </div>
       )}
